@@ -11,6 +11,24 @@ app.set('view engine', 'ejs');
 app.set(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
+let users = [
+    {
+        username: 'john',
+        content : 'hello world'
+    },
+    {
+        username: 'jane',
+        content : 'hello world'
+    },
+    {
+        username: 'joe',
+        content : 'hello world'
+    },{
+        username: 'jane',
+        content : 'hello world'
+    }
+];
+
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
