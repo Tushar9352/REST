@@ -12,12 +12,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const users = [
     { username: 'alice', content: 'Greetings from Alice!' },
-    { username: 'bob', content: 'Hey there, I\'m Bob!' },
+    { username: 'bob', content: 'Hey there, I am Bob!' },
     { username: 'charlie', content: 'Hello from Charlie!' },
-    { username: 'diana', content: 'Hi, I\'m Diana!' }
+    { username: 'diana', content: 'Hi, I am Diana!' }
 ];
 
-app.get('/posts', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index', { users });
 });
 
