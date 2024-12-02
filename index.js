@@ -17,7 +17,7 @@ const users = [
     { username: 'diana', content: 'Hi, I\'m Diana!' }
 ];
 
-app.get('/', (req, res) => {
+app.get('/posts', (req, res) => {
     res.send('Welcome to our app!');
 });
 
