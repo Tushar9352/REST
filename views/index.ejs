@@ -7,5 +7,11 @@
 </head>
 <body>
     <h1>Quora Posts</h1>
+    <% for (let post of posts) { %>
+        <div>
+            <h3>@ <%= post.username %></h3> 
+            <h4><%= post.title %></h4>
+        </div>
+    <% } %>
 </body>
 </html>

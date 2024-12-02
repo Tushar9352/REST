@@ -11,14 +11,14 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 const posts = [
-    { username: 'alice', content: 'Greetings from Alice!' },
-    { username: 'bob', content: 'Hey there, I am Bob!' },
-    { username: 'charlie', content: 'Hello from Charlie!' },
-    { username: 'diana', content: 'Hi, I am Diana!' }
+    { username: 'alice', title: 'Greetings from Alice!' },
+    { username: 'bob', title: 'Hey there, I am Bob!' },
+    { username: 'charlie', title: 'Hello from Charlie!' },
+    { username: 'diana', title: 'Hi, I am Diana!' }
 ];
 
-app.get('/', (req, res) => {
-    res.render('index.ejs', { posts });
+app.get('/posts', (req, res) => {
+    res.render('index', { posts });
 });
 
 app.listen(port, () => {
