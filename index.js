@@ -17,6 +17,10 @@ const posts = [
     { username: 'diana', title: 'Hi, I am Diana!' }
 ];
 
+app.get('/', (req, res) => {
+    res.send('Welcome to our app!');
+});
+
 app.get('/posts', (req, res) => {
     res.render('index', { posts });
 });
