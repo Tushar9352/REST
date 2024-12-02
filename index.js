@@ -10,7 +10,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
-const users = [
+const posts = [
     { username: 'alice', content: 'Greetings from Alice!' },
     { username: 'bob', content: 'Hey there, I am Bob!' },
     { username: 'charlie', content: 'Hello from Charlie!' },
@@ -18,7 +18,7 @@ const users = [
 ];
 
 app.get('/', (req, res) => {
-    res.render('index', { users });
+    res.render('index.ejs', { posts });
 });
 
 app.listen(port, () => {
