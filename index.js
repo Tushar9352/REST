@@ -18,7 +18,7 @@ const users = [
 ];
 
 app.get('/posts', (req, res) => {
-    res.send('Welcome to our app!');
+    res.render("indes.ejs", { users });
 });
 
 app.listen(port, () => {
