@@ -18,7 +18,7 @@ const users = [
 ];
 
 app.get('/posts', (req, res) => {
-    res.render("indes.ejs", { users });
+    res.render('index', { users });
 });
 
 app.listen(port, () => {
