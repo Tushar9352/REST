@@ -40,10 +40,9 @@ button {
 button:hover {
     background-color: darkred;
 }
-
 footer {
     text-align: center;
-    padding: 10px;
+    padding: 100px;
     background-color: #333;
     color: white;
     position: fixed;
