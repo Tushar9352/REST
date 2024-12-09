@@ -18,4 +18,16 @@
                     <div>Posted on: <%= post.timestamp %></div>
                     <div>
                         <a href="#">Like (<%= post.likes %>)</a>
-       
+                        <a href="#">Comment</a>
+                    </div>
+                </div>
+            <% } %>
+        <% } else { %>
+            <p>No posts available.</p>
+        <% } %>
+        <div>
+            <a href="/posts/new">Create a New Post</a>
+        </div>
+    </div>
+</body>
+</html>
