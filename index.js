@@ -25,7 +25,6 @@ app.get('/posts', (req, res) => {
     res.render('index', { posts });
 });
 
-// Route to create a new post
 app.post('/posts', (req, res) => {
     const { username, title } = req.body;
     const newPost = { id: posts.length + 1, username, title };
@@ -33,7 +32,6 @@ app.post('/posts', (req, res) => {
     res.redirect('/posts');
 });
 
-// Route to view a specific post
 app.get('/posts/:id', (req, res) => {
     const { id } = req.params;
     const post = posts.find(p => p.id === parseInt(id));
@@ -44,14 +42,12 @@ app.get('/posts/:id', (req, res) => {
     }
 });
 
-// Route to delete a post
 app.post('/posts/:id/delete', (req, res) => {
     const { id } = req.params;
     posts = posts.filter(p => p.id !== parseInt(id));
     res.redirect('/posts');
 });
 
-// Route to update a post
 app.post('/posts/:id/update', (req, res) => {
     const { id } = req.params;
     const { username, title } = req.body;
