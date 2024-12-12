@@ -29,5 +29,49 @@
             <a href="/posts/new">Create a New Post</a>
         </div>
     </div>
+    <header>
+        <h1>Quora Posts</h1>
+        <!-- Add search form -->
+        <form action="/posts/search" method="get">
+            <input type="text" name="query" placeholder="Search posts...">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+    <div>
+        <% if (posts.length > 0) { %>
+            <% for (let post of posts) { %>
+                <div>
+                    <h3>@ <%= post.username %></h3>
+                    <h4><%= post.title %></h4>
+                    <div>Posted on: <%= post.timestamp %></div>
+                    <div>
+                        <a href="#">Like (<%= post.likes %>)</a>
+                        <a href="/posts/<%= post.id %>/comments">Comment</a>
+                        <!-- Add edit and delete links -->
+                        <a href="/posts/<%= post.id %>/edit">Edit</a>
+                        <a href="/posts/<%= post.id %>/delete">Delete</a>
+                    </div>
+                    <!-- Display comments -->
+                    <div>
+                        <% if (post.comments.length > 0) { %>
+                            <ul>
+                                <% for (let comment of post.comments) { %>
+                                    <li><%= comment.username %>: <%= comment.content %></li>
+                                <% } %>
+                            </ul>
+                        <% } else { %>
+                            <p>No comments available.</p>
+                        <% } %>
+                    </div>
+                </div>
+            <% } %>
+        <% } else { %>
+            <p>No posts available.</p>
+        <% } %>
+        <div>
+            <a href="/posts/new">Create a New Post</a>
+        </div>
+    </div>
+    
 </body>
 </html>
