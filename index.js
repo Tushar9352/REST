@@ -3,16 +3,14 @@ const app = express();
 const path = require('path');
 const port = 8080;
 
-// Middleware setup
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
-// In-memory data store (replace with a database in production)
 let posts = [
     { id: 1, username: 'alice', title: 'Greetings from Alice!' },
     { id: 2, username: 'bob', title: 'Hey there, I am Bob!' },
@@ -20,7 +18,6 @@ let posts = [
     { id: 4, username: 'diana', title: 'Hi, I am Diana!' }
 ];
 
-// Helper function for input validation
 function validatePost(username, title) {
     if (!username || typeof username !== 'string' || username.length < 3) {
         return 'Username must be a string with at least 3 characters';
@@ -31,12 +28,10 @@ function validatePost(username, title) {
     return null;
 }
 
-// Helper function for generating unique IDs
 function generateUniqueId() {
     return Math.max(...posts.map(p => p.id), 0) + 1;
 }
 
-// Routes
 app.get('/', (req, res) => {
     res.send('Welcome to our app!');
 });
