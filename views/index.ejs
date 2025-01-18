@@ -4,74 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Posts</title>
+    <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-    <header>
-        <h1>Quora Posts</h1>
-    </header>
-    <div>
-        <% if (posts.length > 0) { %>
-            <% for (let post of posts) { %>
-                <div>
-                    <h3>@ <%= post.username %></h3> 
-                    <h4><%= post.title %></h4>
-                    <div>Posted on: <%= post.timestamp %></div>
-                    <div>
-                        <a href="#">Like (<%= post.likes %>)</a>
-                        <a href="#">Comment</a>
-                    </div>
-                </div>
-            <% } %>
-        <% } else { %>
-            <p>No posts available.</p>
-        <% } %>
-        <div>
-            <a href="/posts/new">Create a New Post</a>
-        </div>
-    </div>
-    <header>
-        <h1>Quora Posts</h1>
-        <!-- Add search form -->
-        <form action="/posts/search" method="get">
-            <input type="text" name="query" placeholder="Search posts...">
-            <button type="submit">Search</button>
-        </form>
-    </header>
-    <div>
-        <% if (posts.length > 0) { %>
-            <% for (let post of posts) { %>
-                <div>
-                    <h3>@ <%= post.username %></h3>
-                    <h4><%= post.title %></h4>
-                    <div>Posted on: <%= post.timestamp %></div>
-                    <div>
-                        <a href="#">Like (<%= post.likes %>)</a>
-                        <a href="/posts/<%= post.id %>/comments">Comment</a>
-                        <!-- Add edit and delete links -->
-                        <a href="/posts/<%= post.id %>/edit">Edit</a>
-                        <a href="/posts/<%= post.id %>/delete">Delete</a>
-                    </div>
-                    <!-- Display comments -->
-                    <div>
-                        <% if (post.comments.length > 0) { %>
-                            <ul>
-                                <% for (let comment of post.comments) { %>
-                                    <li><%= comment.username %>: <%= comment.content %></li>
-                                <% } %>
-                            </ul>
-                        <% } else { %>
-                            <p>No comments available.</p>
-                        <% } %>
-                    </div>
-                </div>
-            <% } %>
-        <% } else { %>
-            <p>No posts available.</p>
-        <% } %>
-        <div>
-            <a href="/posts/new">Create a New Post</a>
-        </div>
-    </div>
-    
+    <h1>All Posts</h1>
+    <ul>
+        <% posts.forEach(post => { %>
+            <li>
+                <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+                <p>By: <%= post.username %></p>
+            </li>
+        <% }); %>
+    </ul>
+    <a href="/posts/new" class="create-post">Create New Post</a>
 </body>
 </html>
+

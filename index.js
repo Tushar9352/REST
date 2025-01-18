@@ -3,7 +3,6 @@ const app = express();
 const path = require('path');
 const port = 8080;
 
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -33,18 +32,22 @@ function generateUniqueId() {
 }
 
 app.get('/', (req, res) => {
-    res.send('Welcome to our app!');
+    res.redirect('/posts');
 });
 
 app.get('/posts', (req, res) => {
     res.render('index', { posts });
 });
 
+app.get('/posts/new', (req, res) => {
+    res.render('new', { error: null });
+});
+
 app.post('/posts', (req, res) => {
     const { username, title } = req.body;
     const validationError = validatePost(username, title);
     if (validationError) {
-        return res.status(400).send(validationError);
+        return res.render('new', { error: validationError });
     }
     const newPost = { id: generateUniqueId(), username, title };
     posts.push(newPost);
@@ -89,7 +92,6 @@ app.put('/posts/:id', (req, res) => {
     }
 });
 
-// Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
