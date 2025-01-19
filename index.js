@@ -14,7 +14,7 @@ let posts = [
     { id: 1, username: 'alice', title: 'Greetings from Alice!' },
     { id: 2, username: 'bob', title: 'Hey there, I am Bob!' },
     { id: 3, username: 'charlie', title: 'Hello from Charlie!' },
-    // { id: 4, username: 'diana', title: 'Hi, I am Diana!' }
+    { id: 4, username: 'diana', title: 'Hi, I am Diana!' }
 ];
 
 function validatePost(username, title) {
