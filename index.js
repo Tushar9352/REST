@@ -40,7 +40,7 @@ app.get('/posts', (req, res) => {
 });
 
 app.get('/posts/new', (req, res) => {
-    // res.render('new', { error: null });
+    res.render('new', { error: null });
 });
 
 app.post('/posts', (req, res) => {
