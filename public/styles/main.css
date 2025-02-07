@@ -95,24 +95,5 @@ body {
     border-radius: 5px;
   }
 
-  .post-item:hover {  
-    background-color: #ddd;
-  }
-
-  .post-item:hover .post-username {
-    color: #0066cc;
-  } 
-
-  .post-username {
-    font-weight: bold;
-  }
-
-  .post-title {
-    font-size: 1.2em;
-    margin-bottom: 5px;
-  }
-  
-  
-  
   
   
